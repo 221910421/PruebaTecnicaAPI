@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "00a614c3-3b17-48a2-afb3-a7b4ed6b3ec4",
+		"name": "Prueba Técnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12832067"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8001/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/empleados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9Rv7P3QxS6Ae2Jf4Gh5Iw8KlD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/empleados/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Juan Perez Hernandez\",\r\n    \"telefono\": \"1234567890\",\r\n    \"cargo\": \"Desarrollo\",\r\n    \"fecha\": \"2001-12-12\",\r\n    \"genero\": \"Masculino\",\r\n    \"EdoSolicitud\": \"Estado de México\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/empleados/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"empleados",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8001/api/empleados/search?fecha_inicio=1990-01-01",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8001/api/empleados/search?fecha_inicio=1990-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"empleados",
+						"search"
+					],
+					"query": [
+						{
+							"key": "fecha_inicio",
+							"value": "1990-01-01"
+						},
+						{
+							"key": "fecha_fin",
+							"value": "1990-01-01",
+							"disabled": true
+						},
+						{
+							"key": "telefono",
+							"value": "3456789012",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "9Rv7P3QxS6Ae2Jf4Gh5Iw8KlD",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

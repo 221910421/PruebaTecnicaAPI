@@ -1,0 +1,92 @@
+[
+  {
+    "nombre": "María González López",
+    "telefono": "2345678901",
+    "cargo": "Diseño",
+    "fecha": "1998-05-20",
+    "genero": "Femenino",
+    "EdoSolicitud": "Ciudad de México",
+    "id": "82f3cd1a7eb42"
+  },
+  {
+    "nombre": "Pedro Ramirez Sanchez",
+    "telefono": "3456789012",
+    "cargo": "Ventas",
+    "fecha": "1985-09-15",
+    "genero": "Masculino",
+    "EdoSolicitud": "Jalisco",
+    "id": "4a7bde6c1f90a"
+  },
+  {
+    "nombre": "Ana Flores García",
+    "telefono": "4567890123",
+    "cargo": "Recursos Humanos",
+    "fecha": "1990-03-07",
+    "genero": "Femenino",
+    "EdoSolicitud": "Nuevo León",
+    "id": "d982e1cb78f6c"
+  },
+  {
+    "nombre": "Luisa Martínez Hernández",
+    "telefono": "5678901234",
+    "cargo": "Marketing",
+    "fecha": "1982-11-29",
+    "genero": "Femenino",
+    "EdoSolicitud": "Querétaro",
+    "id": "fe3a28dc95b74"
+  },
+  {
+    "nombre": "Javier López González",
+    "telefono": "6789012345",
+    "cargo": "Desarrollo",
+    "fecha": "1976-08-12",
+    "genero": "Masculino",
+    "EdoSolicitud": "Puebla",
+    "id": "9c7eac31b0d88"
+  },
+  {
+    "nombre": "Mónica Rodríguez Pérez",
+    "telefono": "7890123456",
+    "cargo": "Finanzas",
+    "fecha": "1989-02-18",
+    "genero": "Femenino",
+    "EdoSolicitud": "Guanajuato",
+    "id": "1f2d4e3a7b8c9"
+  },
+  {
+    "nombre": "Ricardo Sánchez Martínez",
+    "telefono": "8901234567",
+    "cargo": "Operaciones",
+    "fecha": "1979-06-25",
+    "genero": "Masculino",
+    "EdoSolicitud": "Veracruz",
+    "id": "c6d5a4b3e2f1"
+  },
+  {
+    "nombre": "Sofía Pérez Rodríguez",
+    "telefono": "9012345678",
+    "cargo": "Logística",
+    "fecha": "1995-12-03",
+    "genero": "Femenino",
+    "EdoSolicitud": "Tamaulipas",
+    "id": "7b6a5d4c3e2f1"
+  },
+  {
+    "nombre": "Carlos Hernández Gómez",
+    "telefono": "0123456789",
+    "cargo": "Tecnología",
+    "fecha": "1987-04-14",
+    "genero": "Masculino",
+    "EdoSolicitud": "Michoacán",
+    "id": "5c6b7a8d9e0f1"
+  },
+  {
+    "nombre": "Laura García Martínez",
+    "telefono": "0987654321",
+    "cargo": "Recursos Humanos",
+    "fecha": "1993-10-08",
+    "genero": "Femenino",
+    "EdoSolicitud": "Chiapas",
+    "id": "2d3e4f5a6b7c8"
+  }
+]
