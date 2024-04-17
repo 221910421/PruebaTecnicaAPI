@@ -117,14 +117,14 @@ class EmpleadosController
      */
     public function search()
     {
-        // Verificamos si se han recibido datos por GET
-        if (!empty($_GET)) {
-            // Obtenemos los datos de la URL
-            $fechaInicio = isset($_GET['fecha_inicio']) ? $_GET['fecha_inicio'] : null;
-            $fechaFin = isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : null;
-            $telefono = isset($_GET['telefono']) ? $_GET['telefono'] : null;
+        // Verificamos si se han recibido datos por POST
+        if (!empty($_POST)) {
+            // Obtenemos los datos del formulario
+            $fechaInicio = isset($_POST['fecha_inicio']) ? $_POST['fecha_inicio'] : null;
+            $fechaFin = isset($_POST['fecha_fin']) ? $_POST['fecha_fin'] : null;
+            $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
 
-            // Validamos los datos de búsqueda recibidos guardandalos en un array 
+            // Validamos los datos de búsqueda recibidos guardándolos en un array 
             $errors = $this->validateSearchData($fechaInicio, $fechaFin, $telefono);
 
             // Si hay errores de validación, respondemos con un mensaje de error
@@ -137,56 +137,9 @@ class EmpleadosController
                 return;
             }
 
-            // Obtenemos los datos del archivo JSON
-            $filename = 'empleados_data.txt';
+            $filteredData = $this->filterData($fechaInicio, $fechaFin, $telefono);
 
-            // Intentamos leer el archivo JSON
-            $jsonData = file_get_contents($filename);
-
-            // Verificamos si la lectura del archivo fue exitosa
-            if ($jsonData === false) {
-                // Si hubo un error al leer el archivo, respondemos con un mensaje de error
-                http_response_code(500); // 500 Internal Server Error
-                header('Content-Type: application/json');
-                echo json_encode([
-                    'error' => 'Error al obtener los datos'
-                ]);
-                return;
-            }
-
-            // Intentamos decodificar los datos JSON
-            $data = json_decode($jsonData, true);
-
-            // Verificamos si la decodificación del JSON fue exitosa
-            if ($data === null) {
-                // Si el JSON está vacío o no es válido, respondemos con un mensaje de error
-                http_response_code(404);
-                header('Content-Type: application/json');
-                echo json_encode([
-                    'error' => 'No se encontraron datos válidos'
-                ]);
-                return;
-            }
-
-            // Filtramos los empleados que cumplan con las condiciones de búsqueda
-            $filteredData = array_filter($data, function ($empleado) use ($fechaInicio, $fechaFin, $telefono) {
-                if (
-                    $fechaInicio !== null && $fechaInicio !== "" && $empleado['fecha'] < $fechaInicio
-                ) {
-                    return false;
-                }
-                if (
-                    $fechaFin !== null && $fechaFin !== "" && $empleado['fecha'] > $fechaFin
-                ) {
-                    return false;
-                }
-                if ($telefono !== null && $telefono !== "" && $empleado['telefono'] !== $telefono) {
-                    return false;
-                }
-                return true;
-            });
-
-            //Si el largo del array es 0, no se encontraron resultados y se responde con un mensaje de error 
+            // Si no se encontraron resultados, respondemos con un mensaje de error
             if (count($filteredData) === 0) {
                 http_response_code(404);
                 header('Content-Type: application/json');
@@ -226,10 +179,63 @@ class EmpleadosController
                 'code' => 200,
                 'message' => 'Datos obtenidos correctamente',
                 'data' => $data,
-                'request' => $_GET // Retornamos todos los datos de la solicitud
+                'request' => $_POST // Retornamos todos los datos de la solicitud
             ]);
         }
     }
+
+    /**
+     * Filtra los datos de los empleados según las condiciones de búsqueda.
+     *
+     * @param string|null $fechaInicio La fecha de inicio para filtrar los empleados (opcional).
+     * @param string|null $fechaFin La fecha de fin para filtrar los empleados (opcional).
+     * @param string|null $telefono El número de teléfono para filtrar los empleados (opcional).
+     * @return array Los datos de los empleados filtrados.
+     */
+    private function filterData($fechaInicio, $fechaFin, $telefono)
+    {
+        // Obtenemos los datos del archivo JSON
+        $filename = 'empleados_data.txt';
+
+        // Intentamos leer el archivo JSON
+        $jsonData = file_get_contents($filename);
+
+        // Verificamos si la lectura del archivo fue exitosa
+        if ($jsonData === false) {
+            // Si hubo un error al leer el archivo, retornamos un array vacío
+            return [];
+        }
+
+        // Intentamos decodificar los datos JSON
+        $data = json_decode($jsonData, true);
+
+        // Verificamos si la decodificación del JSON fue exitosa
+        if ($data === null) {
+            // Si el JSON está vacío o no es válido, retornamos un array vacío
+            return [];
+        }
+
+        // Filtramos los empleados que cumplan con las condiciones de búsqueda
+        $filteredData = array_filter($data, function ($empleado) use ($fechaInicio, $fechaFin, $telefono) {
+            if (
+                $fechaInicio !== null && $fechaInicio !== "" && $empleado['fecha'] < $fechaInicio
+            ) {
+                return false;
+            }
+            if (
+                $fechaFin !== null && $fechaFin !== "" && $empleado['fecha'] > $fechaFin
+            ) {
+                return false;
+            }
+            if ($telefono !== null && $telefono !== "" && $empleado['telefono'] !== $telefono) {
+                return false;
+            }
+            return true;
+        });
+
+        return $filteredData;
+    }
+
 
     /**
      * Valida los criterios de búsqueda proporcionados para la búsqueda de empleados.

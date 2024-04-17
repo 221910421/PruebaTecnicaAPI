@@ -88,5 +88,14 @@
         "genero": "Femenino",
         "EdoSolicitud": "Chiapas",
         "id": "2d3e4f5a6b7c8"
+    },
+    {
+        "nombre": "Juan Perez Hernandez",
+        "telefono": "1234567890",
+        "cargo": "Desarrollo",
+        "fecha": "2001-12-12",
+        "genero": "Masculino",
+        "EdoSolicitud": "Estado de M\u00e9xico",
+        "id": "66200242808bf"
     }
 ]
