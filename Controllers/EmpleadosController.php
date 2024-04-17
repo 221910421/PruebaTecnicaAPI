@@ -1,6 +1,19 @@
 <?php
+
+/**
+ * FILEPATH: /C:/Users/Miguel Dominguez/Desktop/Prueba tecnica/Controllers/EmpleadosController.php
+ *
+ * Clase EmpleadosController
+ *
+ * Esta clase se encarga de manejar las solicitudes relacionadas con los empleados.
+ */
 class EmpleadosController
 {
+    /**
+     * Recupera todos los datos de los empleados de un archivo JSON y los devuelve como una respuesta JSON.
+     *
+     * @return void
+     */
     public function index()
     {
         // Obtenemos los datos del archivo JSON
@@ -43,7 +56,11 @@ class EmpleadosController
         ]);
     }
 
-
+    /**
+     * Almacena los datos del empleado recibidos en un archivo JSON y devuelve un mensaje de éxito como respuesta JSON.
+     *
+     * @return void
+     */
     public function store()
     {
         // Verificamos si se han recibido datos
@@ -92,6 +109,12 @@ class EmpleadosController
         }
     }
 
+    /**
+     * Busca empleados basados en los criterios de búsqueda proporcionados y devuelve los resultados coincidentes como una respuesta JSON.
+     * Si no se proporcionan criterios de búsqueda, devuelve todos los datos de los empleados.
+     *
+     * @return void
+     */
     public function search()
     {
         // Verificamos si se han recibido datos por GET
@@ -208,6 +231,14 @@ class EmpleadosController
         }
     }
 
+    /**
+     * Valida los criterios de búsqueda proporcionados para la búsqueda de empleados.
+     *
+     * @param string|null $fechaInicio La fecha de inicio para la búsqueda.
+     * @param string|null $fechaFin La fecha de fin para la búsqueda.
+     * @param string|null $telefono El número de teléfono para la búsqueda.
+     * @return array Un array de errores de validación, si los hay.
+     */
     private function validateSearchData($fechaInicio, $fechaFin, $telefono)
     {
         $errors = [];
@@ -230,6 +261,12 @@ class EmpleadosController
         return $errors;
     }
 
+    /**
+     * Valida los datos recibidos para almacenar un empleado.
+     *
+     * @param array $data Los datos del empleado a validar.
+     * @return array Un array de errores de validación, si los hay.
+     */
     private function validateData($data)
     {
         $errors = [];

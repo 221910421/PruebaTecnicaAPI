@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Este archivo muestra una respuesta HTTP 404 con un mensaje de error en formato JSON.
+ */
+
 // Seteamos el código de respuesta HTTP a 404 
 http_response_code(404);
 

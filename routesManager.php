@@ -1,7 +1,21 @@
 <?php
 
+/**
+ * Clase RoutesManager
+ *
+ * Esta clase se encarga de manejar las rutas y ejecutar el controlador y acción correspondientes
+ * basándose en la URL solicitada y el método HTTP utilizado.
+ */
 class RoutesManager
 {
+    /**
+     * Método run
+     *
+     * Este método es el punto de entrada para el enrutamiento de las solicitudes.
+     * Obtiene la ruta de la URL solicitada, verifica si está definida en la lista de rutas,
+     * valida el método HTTP utilizado y autentica el token de autorización.
+     * Luego, despacha la solicitud al controlador y acción correspondientes.
+     */
     public function run()
     {
         // Obtener la ruta de la URL solicitada
@@ -45,6 +59,17 @@ class RoutesManager
         }
     }
 
+    /**
+     * Método dispatch
+     *
+     * Este método se encarga de incluir el archivo del controlador correspondiente,
+     * crear una instancia del controlador y llamar al método de acción especificado.
+     * Si el método de acción no existe en el controlador, se retorna un error 500.
+     *
+     * @param string $controller El nombre del controlador
+     * @param string $action El nombre del método de acción
+     * @param string $method El método HTTP utilizado
+     */
     private function dispatch($controller, $action, $method)
     {
         // Incluir el archivo del controlador
@@ -64,6 +89,14 @@ class RoutesManager
         }
     }
 
+    /**
+     * Método authenticateToken
+     *
+     * Este método se encarga de autenticar el token de autorización para las rutas del API de empleados.
+     * Si la ruta no es del API de empleados, se permite el acceso sin autenticación.
+     *
+     * @return bool Retorna true si el token es válido, de lo contrario retorna false
+     */
     private function authenticateToken()
     {
         // Token fijo predefinido
