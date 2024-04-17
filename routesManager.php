@@ -60,7 +60,7 @@ class RoutesManager
         } else {
             // Si el método no existe en el controlador, retornar un error 500
             header("HTTP/1.0 500 Internal Server Error");
-            echo "Error 500 - Internal Server Error";
+            include_once("Errors/500.php");
         }
     }
 
@@ -83,17 +83,12 @@ class RoutesManager
 
                 // Comparar el token proporcionado con el token fijo
                 return $token === $fixedToken;
+            } else {
+                // Si no se proporciona ningún token de autorización, denegar acceso
+                return false;
             }
-            return false; // Si no hay encabezado Authorization, denegar acceso
         }
         // Permitir el acceso sin autenticación para rutas que no son del API de empleados
         return true;
-    }
-
-
-
-    private function isValidToken($token)
-    {
-        return !empty($token);
     }
 }

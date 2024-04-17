@@ -1,92 +1,92 @@
 [
-  {
-    "nombre": "María González López",
-    "telefono": "2345678901",
-    "cargo": "Diseño",
-    "fecha": "1998-05-20",
-    "genero": "Femenino",
-    "EdoSolicitud": "Ciudad de México",
-    "id": "82f3cd1a7eb42"
-  },
-  {
-    "nombre": "Pedro Ramirez Sanchez",
-    "telefono": "3456789012",
-    "cargo": "Ventas",
-    "fecha": "1985-09-15",
-    "genero": "Masculino",
-    "EdoSolicitud": "Jalisco",
-    "id": "4a7bde6c1f90a"
-  },
-  {
-    "nombre": "Ana Flores García",
-    "telefono": "4567890123",
-    "cargo": "Recursos Humanos",
-    "fecha": "1990-03-07",
-    "genero": "Femenino",
-    "EdoSolicitud": "Nuevo León",
-    "id": "d982e1cb78f6c"
-  },
-  {
-    "nombre": "Luisa Martínez Hernández",
-    "telefono": "5678901234",
-    "cargo": "Marketing",
-    "fecha": "1982-11-29",
-    "genero": "Femenino",
-    "EdoSolicitud": "Querétaro",
-    "id": "fe3a28dc95b74"
-  },
-  {
-    "nombre": "Javier López González",
-    "telefono": "6789012345",
-    "cargo": "Desarrollo",
-    "fecha": "1976-08-12",
-    "genero": "Masculino",
-    "EdoSolicitud": "Puebla",
-    "id": "9c7eac31b0d88"
-  },
-  {
-    "nombre": "Mónica Rodríguez Pérez",
-    "telefono": "7890123456",
-    "cargo": "Finanzas",
-    "fecha": "1989-02-18",
-    "genero": "Femenino",
-    "EdoSolicitud": "Guanajuato",
-    "id": "1f2d4e3a7b8c9"
-  },
-  {
-    "nombre": "Ricardo Sánchez Martínez",
-    "telefono": "8901234567",
-    "cargo": "Operaciones",
-    "fecha": "1979-06-25",
-    "genero": "Masculino",
-    "EdoSolicitud": "Veracruz",
-    "id": "c6d5a4b3e2f1"
-  },
-  {
-    "nombre": "Sofía Pérez Rodríguez",
-    "telefono": "9012345678",
-    "cargo": "Logística",
-    "fecha": "1995-12-03",
-    "genero": "Femenino",
-    "EdoSolicitud": "Tamaulipas",
-    "id": "7b6a5d4c3e2f1"
-  },
-  {
-    "nombre": "Carlos Hernández Gómez",
-    "telefono": "0123456789",
-    "cargo": "Tecnología",
-    "fecha": "1987-04-14",
-    "genero": "Masculino",
-    "EdoSolicitud": "Michoacán",
-    "id": "5c6b7a8d9e0f1"
-  },
-  {
-    "nombre": "Laura García Martínez",
-    "telefono": "0987654321",
-    "cargo": "Recursos Humanos",
-    "fecha": "1993-10-08",
-    "genero": "Femenino",
-    "EdoSolicitud": "Chiapas",
-    "id": "2d3e4f5a6b7c8"
-  }
+    {
+        "nombre": "Mar\u00eda Gonz\u00e1lez L\u00f3pez",
+        "telefono": "2345678901",
+        "cargo": "Dise\u00f1o",
+        "fecha": "1998-05-20",
+        "genero": "Femenino",
+        "EdoSolicitud": "Ciudad de M\u00e9xico",
+        "id": "82f3cd1a7eb42"
+    },
+    {
+        "nombre": "Pedro Ramirez Sanchez",
+        "telefono": "3456789012",
+        "cargo": "Ventas",
+        "fecha": "1985-09-15",
+        "genero": "Masculino",
+        "EdoSolicitud": "Jalisco",
+        "id": "4a7bde6c1f90a"
+    },
+    {
+        "nombre": "Ana Flores Garc\u00eda",
+        "telefono": "4567890123",
+        "cargo": "Recursos Humanos",
+        "fecha": "1990-03-07",
+        "genero": "Femenino",
+        "EdoSolicitud": "Nuevo Le\u00f3n",
+        "id": "d982e1cb78f6c"
+    },
+    {
+        "nombre": "Luisa Mart\u00ednez Hern\u00e1ndez",
+        "telefono": "5678901234",
+        "cargo": "Marketing",
+        "fecha": "1982-11-29",
+        "genero": "Femenino",
+        "EdoSolicitud": "Quer\u00e9taro",
+        "id": "fe3a28dc95b74"
+    },
+    {
+        "nombre": "Javier L\u00f3pez Gonz\u00e1lez",
+        "telefono": "6789012345",
+        "cargo": "Desarrollo",
+        "fecha": "1976-08-12",
+        "genero": "Masculino",
+        "EdoSolicitud": "Puebla",
+        "id": "9c7eac31b0d88"
+    },
+    {
+        "nombre": "M\u00f3nica Rodr\u00edguez P\u00e9rez",
+        "telefono": "7890123456",
+        "cargo": "Finanzas",
+        "fecha": "1989-02-18",
+        "genero": "Femenino",
+        "EdoSolicitud": "Guanajuato",
+        "id": "1f2d4e3a7b8c9"
+    },
+    {
+        "nombre": "Ricardo S\u00e1nchez Mart\u00ednez",
+        "telefono": "8901234567",
+        "cargo": "Operaciones",
+        "fecha": "1979-06-25",
+        "genero": "Masculino",
+        "EdoSolicitud": "Veracruz",
+        "id": "c6d5a4b3e2f1"
+    },
+    {
+        "nombre": "Sof\u00eda P\u00e9rez Rodr\u00edguez",
+        "telefono": "9012345678",
+        "cargo": "Log\u00edstica",
+        "fecha": "1995-12-03",
+        "genero": "Femenino",
+        "EdoSolicitud": "Tamaulipas",
+        "id": "7b6a5d4c3e2f1"
+    },
+    {
+        "nombre": "Carlos Hern\u00e1ndez G\u00f3mez",
+        "telefono": "0123456789",
+        "cargo": "Tecnolog\u00eda",
+        "fecha": "1987-04-14",
+        "genero": "Masculino",
+        "EdoSolicitud": "Michoac\u00e1n",
+        "id": "5c6b7a8d9e0f1"
+    },
+    {
+        "nombre": "Laura Garc\u00eda Mart\u00ednez",
+        "telefono": "0987654321",
+        "cargo": "Recursos Humanos",
+        "fecha": "1993-10-08",
+        "genero": "Femenino",
+        "EdoSolicitud": "Chiapas",
+        "id": "2d3e4f5a6b7c8"
+    }
 ]

@@ -101,6 +101,19 @@ class EmpleadosController
             $fechaFin = isset($_GET['fecha_fin']) ? $_GET['fecha_fin'] : null;
             $telefono = isset($_GET['telefono']) ? $_GET['telefono'] : null;
 
+            // Validamos los datos de búsqueda recibidos guardandalos en un array 
+            $errors = $this->validateSearchData($fechaInicio, $fechaFin, $telefono);
+
+            // Si hay errores de validación, respondemos con un mensaje de error
+            if (!empty($errors)) {
+                http_response_code(400); // 400 Bad Request
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'error' => $errors
+                ]);
+                return;
+            }
+
             // Obtenemos los datos del archivo JSON
             $filename = 'empleados_data.txt';
 
@@ -134,17 +147,31 @@ class EmpleadosController
 
             // Filtramos los empleados que cumplan con las condiciones de búsqueda
             $filteredData = array_filter($data, function ($empleado) use ($fechaInicio, $fechaFin, $telefono) {
-                if ($fechaInicio !== null && $empleado['fecha'] < $fechaInicio) {
+                if (
+                    $fechaInicio !== null && $fechaInicio !== "" && $empleado['fecha'] < $fechaInicio
+                ) {
                     return false;
                 }
-                if ($fechaFin !== null && $empleado['fecha'] > $fechaFin) {
+                if (
+                    $fechaFin !== null && $fechaFin !== "" && $empleado['fecha'] > $fechaFin
+                ) {
                     return false;
                 }
-                if ($telefono !== null && $empleado['telefono'] !== $telefono) {
+                if ($telefono !== null && $telefono !== "" && $empleado['telefono'] !== $telefono) {
                     return false;
                 }
                 return true;
             });
+
+            //Si el largo del array es 0, no se encontraron resultados y se responde con un mensaje de error 
+            if (count($filteredData) === 0) {
+                http_response_code(404);
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'error' => 'No se encontraron resultados'
+                ]);
+                return;
+            }
 
             // Respondemos con los datos obtenidos
             header('Content-Type: application/json');
@@ -179,6 +206,28 @@ class EmpleadosController
                 'request' => $_GET // Retornamos todos los datos de la solicitud
             ]);
         }
+    }
+
+    private function validateSearchData($fechaInicio, $fechaFin, $telefono)
+    {
+        $errors = [];
+
+        // Validar el formato de la fecha de inicio (formato yyyy-mm-dd)
+        if ($fechaInicio !== null && $fechaInicio !== "" && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $fechaInicio)) {
+            $errors[] = 'La fecha de inicio es inválida';
+        }
+
+        // Validar el formato de la fecha de fin (formato yyyy-mm-dd)
+        if ($fechaFin !== null && $fechaFin !== "" && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $fechaFin)) {
+            $errors[] = 'La fecha de fin es inválida';
+        }
+
+        // Validar que el teléfono tenga 10 dígitos numéricos
+        if ($telefono !== null && $telefono !== "" && !preg_match('/^\d{10}$/', $telefono)) {
+            $errors[] = 'El teléfono es inválido';
+        }
+
+        return $errors;
     }
 
     private function validateData($data)
