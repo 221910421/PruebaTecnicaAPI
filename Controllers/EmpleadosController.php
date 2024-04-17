@@ -178,8 +178,7 @@ class EmpleadosController
             echo json_encode([
                 'code' => 200,
                 'message' => 'Datos obtenidos correctamente',
-                'data' => $data,
-                'request' => $_POST // Retornamos todos los datos de la solicitud
+                'data' => $data
             ]);
         }
     }
@@ -202,8 +201,12 @@ class EmpleadosController
 
         // Verificamos si la lectura del archivo fue exitosa
         if ($jsonData === false) {
-            // Si hubo un error al leer el archivo, retornamos un array vacío
-            return [];
+            // Si hubo un error al leer el archivo, retornamos un error 500
+            http_response_code(500); // 500 Internal Server Error
+            header('Content-Type: application/json');
+            echo json_encode([
+                'error' => 'Error al obtener los datos'
+            ]);
         }
 
         // Intentamos decodificar los datos JSON
@@ -211,8 +214,11 @@ class EmpleadosController
 
         // Verificamos si la decodificación del JSON fue exitosa
         if ($data === null) {
-            // Si el JSON está vacío o no es válido, retornamos un array vacío
-            return [];
+            http_response_code(500); // 500 Internal Server Error
+            header('Content-Type: application/json');
+            echo json_encode([
+                'error' => 'Error al obtener los datos'
+            ]);
         }
 
         // Filtramos los empleados que cumplan con las condiciones de búsqueda

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "00a614c3-3b17-48a2-afb3-a7b4ed6b3ec4",
 		"name": "Prueba Técnica",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "12832067"
 	},
 	"item": [
@@ -11,17 +11,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:8001/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8001",
-					"path": [
-						""
-					]
-				}
+				"url": "http://localhost:8001/"
 			},
 			"response": []
 		},
@@ -30,28 +20,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "9Rv7P3QxS6Ae2Jf4Gh5Iw8KlD",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "9Rv7P3QxS6Ae2Jf4Gh5Iw8KlD"
+					}
 				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:8001/api/empleados",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8001",
-					"path": [
-						"api",
-						"empleados"
-					]
-				}
+				"url": "http://localhost:8001/api/empleados"
 			},
 			"response": []
 		},
@@ -69,19 +44,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8001/api/empleados/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8001",
-					"path": [
-						"api",
-						"empleados",
-						"create"
-					]
-				}
+				"url": "http://localhost:8001/api/empleados/create"
 			},
 			"response": []
 		},
@@ -91,51 +54,35 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8001/api/empleados/search?fecha_inicio=1990-01-01",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8001",
-					"path": [
-						"api",
-						"empleados",
-						"search"
-					],
-					"query": [
+					"mode": "formdata",
+					"formdata": [
 						{
 							"key": "fecha_inicio",
-							"value": "1990-01-01"
+							"value": "1985-01-01",
+							"type": "text"
 						},
 						{
 							"key": "fecha_fin",
 							"value": "1990-01-01",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "telefono",
-							"value": "3456789012",
-							"disabled": true
+							"value": "",
+							"type": "text"
 						}
 					]
-				}
+				},
+				"url": "http://localhost:8001/api/empleados/search"
 			},
 			"response": []
 		}
 	],
 	"auth": {
 		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "9Rv7P3QxS6Ae2Jf4Gh5Iw8KlD",
-				"type": "string"
-			}
-		]
+		"bearer": {
+			"token": "9Rv7P3QxS6Ae2Jf4Gh5Iw8KlD"
+		}
 	},
 	"event": [
 		{
